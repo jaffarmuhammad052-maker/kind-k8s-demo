@@ -64,12 +64,14 @@ Cleanup
 Delete the Kind cluster and clean up Docker resources.
 
 Sequential Commands with Descriptions
-Step	Command	Description
-Install kubectl	kubectl version --client	Verify kubectl is installed.
-Start cluster	kind create cluster --name kind-demo --wait 5m	Create a local Kind Kubernetes cluster.
-Check cluster	kubectl cluster-info	Show control plane endpoints.
+Step	Command	Description 
+Install kubectl	kubectl version --client	                            Verify kubectl is installed.
+Start cluster	kind create cluster --name kind-demo --wait 5m	        Create a local Kind Kubernetes cluster.
+Check cluster	kubectl cluster-info	  
+
+Show control plane endpoints.
 List nodes	kubectl get nodes	Verify all nodes are ready.
-Build Docker image	docker build -t kind-web:1.0 ./app	Build application image.
+Build Docker image	docker build -t kind-web:1.0 ./app	               Build application image.
 Load image to Kind	kind load docker-image kind-web:1.0 --name kind-demo	Make the image available inside the Kind cluster.
 Apply ConfigMap	kubectl apply -f k8s/configmap.yaml	Create configuration for the app.
 Verify ConfigMap	kubectl get configmaps	List available ConfigMaps.
